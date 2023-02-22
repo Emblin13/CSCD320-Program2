@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b020138-3b8b-41ea-9de8-d777e136bf86" name="Changes" comment=".">
+    <list default="true" id="3b020138-3b8b-41ea-9de8-d777e136bf86" name="Changes" comment="Before removing heap as an argument">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MinHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinHeap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Richest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Richest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TopEarners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TopEarners.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +73,7 @@
       <updated>1676948792920</updated>
       <workItem from="1676948795783" duration="4167000" />
       <workItem from="1677009293630" duration="11980000" />
-      <workItem from="1677089671158" duration="1031000" />
+      <workItem from="1677089671158" duration="3502000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1676954039328</created>
@@ -87,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677049007305</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Before removing heap as an argument">
+      <created>1677091163665</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677091163665</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +116,28 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Before removing heap as an argument" />
+    <option name="LAST_COMMIT_MESSAGE" value="Before removing heap as an argument" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Richest.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Richest.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Richest.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

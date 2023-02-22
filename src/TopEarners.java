@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 
             //Compare the rest of the numbers to the root of the heap.
-            while (in.hasNextInt()){
+            while (in.hasNextInt()) {
                 int next = Integer.parseInt(in.nextLine());
                 if(next > heap[1]){
                     heap[1] = next;

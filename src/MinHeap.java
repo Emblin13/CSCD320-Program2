@@ -1,3 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.Scanner;
+
 public class MinHeap {
 
     private int[] heapArray;
@@ -53,40 +59,75 @@ public class MinHeap {
     }
 
     public void minHeapify(int[] heap, int i, int heapSize) {
-        int l = leftChild(i);
-        int r = rightChild(i);
+        int left = leftChild(i);
+        int right = rightChild(i);
         int smallest;
-        if(l <= heapSize && heap[l] < heap[i]){
-            smallest = l;
+        if(left <= heapSize && heap[left] < heap[i]) {
+            smallest = left;
         } else {
             smallest = i;
         }
-        if(r <= heapSize && heap[r] < heap[smallest]){
-            smallest = r;
+        if(right <= heapSize && heap[right] < heap[smallest]) {
+            smallest = right;
         }
-        if(smallest != i){
+        if(smallest != i) {
             swap(i, smallest);
             minHeapify(heap, smallest, heapSize);
         }
     }
 
-    public void buildMinHeap(int[] heap) {
+    public void buildMinHeap() {
         for (int i = this.size / 2; i >= 1; i--){
-            minHeapify(heap, i, this.size - 1);
+            minHeapify(this.heapArray, i, this.size - 1);
         }
     }
 
-    public void heapSort(int[] heap) {
-        buildMinHeap(heap);
-        int heapSize = heap.length-1;
-        for(int i = heap.length-1; i >= 2; i--){
-            int temp = heap[1];
-            heap[1] = heap[i];
-            heap[i] = temp;
+    //Walks through a file, replacing the root with any larger numbers it finds
+    public void replaceHeapFromFile(String fileName) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new FileReader(fileName));
+
+        while (scanner.hasNextInt()) {
+            int next = Integer.parseInt(scanner.nextLine());
+            if(next > heapArray[1]){
+                heapArray[1] = next;
+                minHeapify(heapArray, 1, this.size - 1);
+                System.out.println("Heap is min heap: " + isMinHeap(heapArray));
+            }
+        }
+    }
+
+    public boolean isMinHeap(int[] heap){
+        for(int i = 1; i < heap.length/2; i++){
+            if(heap[i] > heap[leftChild(i)] || heap[i] > heap[rightChild(i)]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void heapSort() {
+        buildMinHeap();
+        int heapSize = this.size - 1;
+        for(int i = this.size - 1; i >= 2; i--) {
+            swap(1, i);
             heapSize--;
-            minHeapify(heap, 1, heapSize);
+            minHeapify(heapArray, 1, heapSize);
         }
     }
 
+    public void outputHeap(String fileName) {
+        Scanner scanner = new Scanner(new FileReader(fileName));
+
+        //Write the heap to the output file.
+        File output = new File("output.txt");
+        FileWriter writer = new FileWriter(output);
+        for(int i = 1; i < this.size; i++){
+            writer.write(heap[i] + "\n");
+        }
+
+        //Close the files.
+        scanner.close();
+        writer.close();
+    }
 
 }

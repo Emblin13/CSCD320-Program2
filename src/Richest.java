@@ -2,11 +2,7 @@
 //2/21/2023
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
 import java.util.Scanner;
 
 public class Richest {
@@ -15,9 +11,18 @@ public class Richest {
         MinHeap minHeap = new MinHeap(10000);
         //arg[0] should be the name of the file
         fillHeapFromFile(args[0], minHeap, 10000);
-        minHeap.buildMinHeap(); //look into removing the requirement to pass the heap into itself
-
         System.out.println("Number of data entries: " + minHeap.size);
+
+        minHeap.buildMinHeap();
+        System.out.println("Number of data entries: " + minHeap.size);
+
+        minHeap.replaceHeapFromFile(args[0]);
+        System.out.println("Number of data entries: " + minHeap.size);
+
+        minHeap.heapSort();
+        System.out.println("Number of data entries: " + minHeap.size);
+
+        //consolidate scanners and file objects later
 
         //TopEarners hunterHeap = new TopEarners();
         //hunterHeap.process(new File(args[0]));
@@ -33,4 +38,5 @@ public class Richest {
             heap.insertToEnd(a);
         }
     }
+
 }
