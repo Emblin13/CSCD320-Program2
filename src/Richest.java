@@ -2,43 +2,33 @@
 //2/21/2023
 
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Richest {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        //The first arg should be the name of the file, and the 2nd arg should be the order
-        int[] data = fillArrayFromFile(args[0]);
-        System.out.println(data.length);
+    public static void main(String[] args) throws IOException {
+        MinHeap minHeap = new MinHeap(10000);
+        //arg[0] should be the name of the file
+        fillHeapFromFile(args[0], minHeap, 10000);
+        System.out.println("Number of data entries: " + minHeap.size);
 
-        BTree2 tree = new BTree2(3);
+        //TopEarners hunterHeap = new TopEarners();
+        //hunterHeap.process(new File(args[0]));
 
 
     }
 
-    public static int[] fillArrayFromFile(String fileName) throws FileNotFoundException {
+    public static void fillHeapFromFile(String fileName, MinHeap heap, int lineLimit) throws FileNotFoundException {
         Scanner scanner = new Scanner(new FileReader(fileName));
-        ArrayList<Integer> tempArray = new ArrayList<>();
-
-        //Reads and parses each line in the file as an Integer and adds it to the temp arraylist
-        while (scanner.hasNext()) {
-            tempArray.add(Integer.parseInt(scanner.next()));
+        //Reads and parses each line in the file as an Integer and adds it to the end of the heap
+        while (scanner.hasNext() && heap.size < lineLimit) {
+            int a = Integer.parseInt(scanner.next());
+            heap.insertToEnd(a);
         }
-
-        //converts the ArrayList to a primitive array of ints, then returns it.
-        return tempArray.stream().mapToInt(i -> i).toArray();
     }
-
-    public static void fillTreeFromArray(int[] arr) {
-
-    }
-
-
-
-
-
-
 }
