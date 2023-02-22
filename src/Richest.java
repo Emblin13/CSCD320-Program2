@@ -15,6 +15,8 @@ public class Richest {
         MinHeap minHeap = new MinHeap(10000);
         //arg[0] should be the name of the file
         fillHeapFromFile(args[0], minHeap, 10000);
+        minHeap.buildMinHeap(); //look into removing the requirement to pass the heap into itself
+
         System.out.println("Number of data entries: " + minHeap.size);
 
         //TopEarners hunterHeap = new TopEarners();
